@@ -47,9 +47,9 @@ export default async function handler(request: NextRequest) {
   const ip = request.ip ?? "127.0.0.1";
 
   //remove
-  if (request.method === "OPTIONS") {
-    return new Response("", { status: 200 });
-  }
+  // if (request.method === "OPTIONS") {
+  //   return new Response("", { status: 200 });
+  // }
 
   if (request.method !== "POST") {
     return new Response("Method not allowed", {
