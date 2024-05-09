@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { kv } from "@vercel/kv";
-import { getRandomImage } from "pages/images";
+import { getRandomImage } from "images";
 
 const ratelimit = new Ratelimit({
   redis: kv,
