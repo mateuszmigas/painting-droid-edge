@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { Ratelimit } from "@upstash/ratelimit";
 import { kv } from "@vercel/kv";
+import { getRandomImage } from "../../images";
 
 const ratelimit = new Ratelimit({
   redis: kv,
@@ -40,11 +41,9 @@ export default async function handler(request: NextRequest) {
     });
   }
 
-  const xx = await import("../../images");
-
   return new Response(
     JSON.stringify({
-      artifacts: [{ base64: xx.getRandomImage() }],
+      artifacts: [{ base64: getRandomImage() }],
     }),
     {
       status: 200,
